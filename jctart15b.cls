@@ -32,10 +32,10 @@
 \RequirePackage{mathtext}
 % Next strings will cause the option clash problems. Needs correction!
 \RequirePackage[T2A]{fontenc}
-\RequirePackage[cp1251]{inputenc}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[english,russian]{babel}
-\RequirePackage[pdftex]{graphicx}  % Графика для рис.~~в pdf и png компил. PDF-LaTeX
-\RequirePackage{cmap}  %%%  исправляет кодировки (для правильного pdf)
+\RequirePackage[pdftex]{graphicx}  % Р“СЂР°С„РёРєР° РґР»СЏ СЂРёСЃ.~~РІ pdf Рё png РєРѕРјРїРёР». PDF-LaTeX
+%\RequirePackage{cmap}  %%%  РёСЃРїСЂР°РІР»СЏРµС‚ РєРѕРґРёСЂРѕРІРєРё (РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ pdf)
 
 \addto\captionsenglish{%
   \def\figurename{Fig.}%
@@ -119,21 +119,21 @@
 \def\JCTsetemark[#1]{\JCTemarktrue}
 \def\JCTvolume(#1,#2,#3){\def\JCTvolume{#1}\def\JCTnumber{#2}\def\JCTyear{#3}\@ifnextchar [{\JCTsetemark}{}}
 %\def\No{\char242~} %% CAUTION: Do not know how to do it better
-\def\No{№} %% May be it's also not the best.
+\def\No{в„–} %% May be it's also not the best.
 
 \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\hspace{0.5em}}
 
 \def\@begintheorem#1#2{\trivlist
    \item[\hskip \labelsep{\bfseries #1\ #2.}]\itshape}
-% здесь нужно обработать случай \cite в #3
+% Р·РґРµСЃСЊ РЅСѓР¶РЅРѕ РѕР±СЂР°Р±РѕС‚Р°С‚СЊ СЃР»СѓС‡Р°Р№ \cite РІ #3
 \def\@opargbegintheorem#1#2#3{\trivlist
       \item[\hskip \labelsep{\bfseries #1\ #2\ (#3).}]\itshape}
 % copy of previous
 %\def\@opargbegintheorem#1#2#3{\trivlist
 %      \item[\hskip \labelsep{\bfseries #1\ #2\ (#3).}]\itshape}
 
-% В \@caption внесен условный оператор, выделяющий случай "пустой" подписи
-% здесь же нужно добавлять обработку варианта table
+% Р’ \@caption РІРЅРµСЃРµРЅ СѓСЃР»РѕРІРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ, РІС‹РґРµР»СЏСЋС‰РёР№ СЃР»СѓС‡Р°Р№ "РїСѓСЃС‚РѕР№" РїРѕРґРїРёСЃРё
+% Р·РґРµСЃСЊ Р¶Рµ РЅСѓР¶РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РѕР±СЂР°Р±РѕС‚РєСѓ РІР°СЂРёР°РЅС‚Р° table
 \long\def\@caption#1[#2]#3{%
   \par
   \addcontentsline{\csname ext@#1\endcsname}{#1}%
@@ -151,7 +151,7 @@
 	\par
   \endgroup}
 
-% \@makecaptiona - отрисовка подписи для "пустого" случая
+% \@makecaptiona - РѕС‚СЂРёСЃРѕРІРєР° РїРѕРґРїРёСЃРё РґР»СЏ "РїСѓСЃС‚РѕРіРѕ" СЃР»СѓС‡Р°СЏ
 \long\def\@makecaptiona#1{%
   \vskip\abovecaptionskip
   \sbox\@tempboxa{\small #1}%
@@ -301,7 +301,7 @@
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 
-\renewenvironment{enumerate}{%%%% Списки без отбивки!
+\renewenvironment{enumerate}{%%%% РЎРїРёСЃРєРё Р±РµР· РѕС‚Р±РёРІРєРё!
     \begin{list}{\labelitemi}{
     \setlength{\topsep}{0pt}
     \setlength{\partopsep}{0pt}
@@ -311,7 +311,7 @@
     }
 }{\end{list}}
 
-\renewenvironment{itemize}{%%%% Списки без отбивки!
+\renewenvironment{itemize}{%%%% РЎРїРёСЃРєРё Р±РµР· РѕС‚Р±РёРІРєРё!
     \begin{list}{\labelitemi}{
     \setlength{\topsep}{0pt}
     \setlength{\partopsep}{0pt}
